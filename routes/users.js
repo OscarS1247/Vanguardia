@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  console.log(process.env.VITE_WEATHER_API);
+  res.send('respond with a resources: ' + process.env.VITE_WEATHER_API);
 });
 
 module.exports = router;
