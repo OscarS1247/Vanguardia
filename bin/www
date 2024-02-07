@@ -19,22 +19,6 @@ app.set('port', port);
 
 
 /**
- * Create MongoDB Connection.
- */
-
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri = process.env.MONGODB_DATABASE;
-const client = new MongoClient(uri,  {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-        }
-    }
-);
-
-
-/**
  * Create HTTP server.
  */
 
