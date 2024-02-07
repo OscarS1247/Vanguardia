@@ -15,57 +15,57 @@ const connect = async () => {
 
 // Agregar un nuevo estante
 async function crear_estante(req, res) {
-    connect();
+    await connect();
     const nuevo_estante = new estanteModel.estante(req.body);
     try {
         await nuevo_estante.save();
         res.send({ message: "Estante Creado con Exito!", status: "200" });
     } catch (err) {
-        res.status(500).send({ message: "Internal server error", status: "500" });
+        res.status(500).send({ message: ("Internal server error: " + err), status: "500" });
     }
 }
 
 // Remover un estante
 async function remover_estante(req, res) {
-    connect();
+    await connect();
     try {
         await estanteModel.estante.deleteOne({ id: req.params.id });
         res.send({ message: "Estante Removido con Exito!", status: "200" });
     } catch (err) {
-        res.status(500).send({ message: "Internal server error", status: "500" });
+        res.status(500).send({ message: ("Internal server error: " + err), status: "500" });
     }
 }
 
 // Actualizar un estante
 async function actualizar_estante(req, res) {
-    connect();
+    await connect();
     try {
         await estanteModel.estante.updateOne({ id: req.params.id }, req.body);
         res.send({ message: "Estante Actualizado con Exito!", status: "200" });
     } catch (err) {
-        res.status(500).send({ message: "Internal server error", status: "500" });
+        res.status(500).send({ message: ("Internal server error: " + err), status: "500" });
     }
 }
 
 // Obtener todos los estantes
 async function obtener_estantes(req, res) {
-    connect();
+    await connect();
     try {
         const estantes = await estanteModel.estante.find();
         res.send(estantes);
     } catch (err) {
-        res.status(500).send({ message: "Internal server error", status: "500" });
+        res.status(500).send({ message: ("Internal server error: " + err), status: "500" });
     }
 }
 
 // Obtener un estante por id
 async function obtener_estante_id(req, res) {
-    connect();
+    await connect();
     try {
         const estante = await estanteModel.estante.findOne({ id: req.params.id });
         res.send(estante);
     } catch (err) {
-        res.status(500).send({ message: "Internal server error", status: "500" });
+        res.status(500).send({ message: ("Internal server error: " + err), status: "500" });
     }
 }
 
