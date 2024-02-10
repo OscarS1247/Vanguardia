@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const LibroSchema = new mongoose.Schema({
 	id: [{
 		type: Number,
-		required: true
+		required: true,
+		unique: true,
 	}],
 	nombre: [{
 		type: String,
@@ -22,6 +23,7 @@ const LibroSchema = new mongoose.Schema({
 		type: String,
 	}],
 	ISBN: [{
+		unique: true,
 		type: String,
 	}],
 	genero: [{
@@ -31,6 +33,9 @@ const LibroSchema = new mongoose.Schema({
 		type: String,
 	}],
 	edicion: [{
+		type: Number,
+	}],
+	copias : [{
 		type: Number,
 	}],
 });

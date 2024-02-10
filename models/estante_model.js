@@ -14,7 +14,8 @@ const estanteSchema = new mongoose.Schema({
         required: true
     }],
     libros: [{
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'libros',
         required: true
     }],
 });

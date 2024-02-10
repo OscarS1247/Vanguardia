@@ -5,7 +5,6 @@ const libroModel = require("../models/libro_model");
 const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_DATABASE_URL);
-        console.log(process.env.MONGODB_DATABASE_URL);
         console.log("Conexion establecida con Exito!");
     } catch (err) {
         console.error(err.message);
